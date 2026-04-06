@@ -1,0 +1,15 @@
+.env
+*.env
+.vagrant/
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+*.pem
+id_rsa*
+id_ed25519*
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

@@ -1,0 +1,19 @@
+---
+- name: Configuración básica del servidor
+  hosts: servidores
+  become: yes
+  tasks:
+    - name: Actualizar paquetes
+      apt:
+        update_cache: yes
+
+    - name: Instalar Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Iniciar y habilitar Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
