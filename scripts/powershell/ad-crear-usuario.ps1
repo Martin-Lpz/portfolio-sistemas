@@ -30,13 +30,13 @@ param(
     [string]$Usuario,
 
     [Parameter(Mandatory=$false)]
-    [string]$OU = "lab-30",
+    [string]$OU = "Usuarios",
 
     [Parameter(Mandatory=$false)]
     [string]$Departamento = "General",
 
     [Parameter(Mandatory=$false)]
-    [string]$Servidor = "172.16.107.117",
+    [string]$Servidor = "IP-DE-TU-DC",
 
     [Parameter(Mandatory=$false)]
     [System.Management.Automation.PSCredential]$Credencial = $null
@@ -67,12 +67,12 @@ if (Get-ADUser -Filter "SamAccountName -eq '$Usuario'" -Server $Servidor -Creden
 try {
     New-ADUser `
         -Server             $Servidor `
-        -Credential         $Credencial `
+        -Credential         $Credential `
         -Name               $Nombre `
         -GivenName          $nombre `
         -Surname            $apellido `
         -SamAccountName     $Usuario `
-        -UserPrincipalName  "$Usuario@martin.local" `
+        -UserPrincipalName  "$Usuario@lab.local" `
         -Path               $rutaOU `
         -Department         $Departamento `
         -AccountPassword    $passTemp `
