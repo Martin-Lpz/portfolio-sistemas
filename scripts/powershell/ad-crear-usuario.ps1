@@ -30,13 +30,13 @@ param(
     [string]$Usuario,
 
     [Parameter(Mandatory=$false)]
-    [string]$OU = "Usuarios",
+    [string]$OU = "lab-30",
 
     [Parameter(Mandatory=$false)]
     [string]$Departamento = "General",
 
     [Parameter(Mandatory=$false)]
-    [string]$Servidor = "IP-DE-TU-DC",
+    [string]$Servidor = "172.16.107.117",
 
     [Parameter(Mandatory=$false)]
     [System.Management.Automation.PSCredential]$Credencial = $null
