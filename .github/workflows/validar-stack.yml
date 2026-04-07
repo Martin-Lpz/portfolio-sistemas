@@ -8,6 +8,8 @@ jobs:
 
   estructura:
     name: Verificar estructura del repositorio
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -55,7 +57,7 @@ jobs:
 
       - name: Buscar posibles contraseñas hardcodeadas
         run: |
-          if grep -r "password\s*=\s*['\"][^${\\'\"]\+['\"]" --include="*.yml" --include="*.yaml" --include="*.tf" .; then
+          if grep -r "password\s*=\s*['\"][^\${\\'\"]\+['\"]" --include="*.yml" --include="*.yaml" --include="*.tf" .; then
             echo "⚠️  Posibles contraseñas hardcodeadas — revisar"
           else
             echo "✅ No se encontraron contraseñas hardcodeadas"
